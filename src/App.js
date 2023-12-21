@@ -20,7 +20,7 @@ function Nav(props) {
       // href={`/read/${t.id}`}
         id={t.id}
         onClick={(e) => {
-        props.onChangeMode(e.target.id)
+        props.onChangeMode(Number(e.target.id))
       }}>
         {t.title}
         </a>
@@ -42,18 +42,27 @@ function Article(props) {
 
 function App() {
   const [mode, setMode] = useState("WELCOME")
+  const [id, setId] = useState()
 
-  let content;
-  if (mode === "WELCOME") {
-    content = <Article title="Welcome" body="Hello body welcome"></Article>
-  } else if (mode === "READ") {
-    content = <Article title="Read" body="Hello body read"></Article>
-  }
   const topics = [
     { id: 1, title: 'html', body: 'html is ...' },
     { id: 2, title: 'js', body: 'js is ...' },
     { id: 3, title: 'css', body: 'css is ...' },
   ]
+
+  let content;
+  if (mode === "WELCOME") {
+    content = <Article title="Welcome" body="Hello body welcome"></Article>
+  } else if (mode === "READ") {
+    let title, body;
+    for (let i = 0; i < topics.length; i++) {
+      if (topics[i].id === id) {
+        title = topics[i].title;
+        body = topics[i].body;
+      }
+    }
+    content = <Article title={title} body={body}></Article>
+  }
   return (
     <div>
       <Header title="타이틀1" onChangeMode={() => {
@@ -62,6 +71,7 @@ function App() {
       }}></Header>
       <Nav topics={topics} onChangeMode={(id) => {
         setMode("READ")
+        setId(id)
         alert(`${id} change READ`)
       }}></Nav>
       {content}
