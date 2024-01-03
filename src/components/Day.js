@@ -1,13 +1,16 @@
 import React from 'react'
 import dummy from '../db/data.json'
+import { useParams } from 'react-router-dom'
 
 const DayList = () => {
+  const { day } = useParams()
   const wordList = dummy.words.filter(word => (
-    word.day === 1
+    word.day === Number(day)
   ))
 
   return (
     <>
+      <h2>Day {day}</h2>
       <table>
         <tbody>
           {wordList.map(word => (
