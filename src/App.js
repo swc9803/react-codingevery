@@ -1,13 +1,14 @@
 import React from 'react'
-import './App.css'
-import Hello from './components/Hello.js'
+import Header from './components/Header'
+import DayList from './components/DayList'
+import Day from './components/Day'
 
-function App () {
+const App = () => {
   return (
     <div className='App'>
-      <Hello age={10} />
-      <Hello age={20} />
-      <Hello age={30} />
+      <Header />
+      <DayList />
+      <Day />
     </div>
   )
 }
