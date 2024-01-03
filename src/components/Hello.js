@@ -1,19 +1,21 @@
+/* eslint-disable react/prop-types */
 import { React, useState } from 'react'
-import styles from './Hello.module.css'
+import UserName from './UserName.js'
 
-export default function Hello () {
+export default function Hello ({ age }) {
   const [name, setName] = useState('Mike')
-
-  const changeName = () => {
-    const newName = name === 'Mike' ? 'Jane' : 'Mike'
-    setName(newName)
-  }
+  const msg = age > 19 ? '성인' : '미성년자'
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <h1>hello components</h1>
-      <p>{name}</p>
-      <button onClick={changeName}>Change name</button>
-    </div>
+      <p>{name} ({age}) : {msg} </p>
+      <UserName name={name} />
+      <button onClick={() => {
+        setName(name === 'Mike' ? 'Jane' : 'Mike')
+      }}>
+        Change name
+      </button>
+    </>
   )
 }
