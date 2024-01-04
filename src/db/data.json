@@ -11,6 +11,10 @@
     {
       "id": 3,
       "day": 3
+    },
+    {
+      "day": 4,
+      "id": 4
     }
   ],
   "words": [
@@ -62,6 +66,13 @@
       "kor": "쥐",
       "isDone": false,
       "id": 8
+    },
+    {
+      "day": "4",
+      "eng": "monkey",
+      "kor": "원숭이",
+      "isDone": false,
+      "id": 9
     }
   ]
 }
