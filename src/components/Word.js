@@ -2,15 +2,19 @@ import { React, useState } from 'react'
 
 const Header = ({ word }) => {
   const [isShow, setIsShow] = useState(false)
+  const [isDone, setIsDone] = useState(word.isDone)
 
   const toggleShow = () => {
     setIsShow(!isShow)
   }
+  const toggleDone = () => {
+    setIsDone(!isDone)
+  }
 
   return (
-    <tr>
+    <tr className={isDone ? 'off' : ''}>
         <td>
-            <input type='checkbox' />
+            <input type='checkbox' checked={isDone} onChange={toggleDone} />
         </td>
         <td>{word.eng}</td>
         <td>{isShow && word.kor}</td>
