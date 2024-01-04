@@ -48,6 +48,20 @@
       "eng": "pencil",
       "kor": "연필",
       "isDone": false
+    },
+    {
+      "day": "1",
+      "eng": "window",
+      "kor": "창",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "day": "3",
+      "eng": "mouse",
+      "kor": "쥐",
+      "isDone": false,
+      "id": 8
     }
   ]
 }

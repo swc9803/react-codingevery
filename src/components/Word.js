@@ -9,7 +9,6 @@ const Header = (props) => {
     setIsShow(!isShow)
   }
   const toggleDone = () => {
-    setIsDone(!isDone)
     fetch(`http://localhost:3001/words/${word.id}`, {
       method: 'PUT',
       headers: {
